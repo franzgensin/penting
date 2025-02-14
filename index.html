@@ -29,11 +29,13 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            flex-direction: column;
         }
         #valentineImage {
             display: none;
             margin-top: 20px;
-            max-width: 30%; /* Perkecil gambar agar lebih rapi */
+            width: 80%; /* Ukuran gambar lebih fleksibel */
+            max-width: 400px; /* Batas maksimum agar tidak terlalu besar */
             height: auto;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -95,28 +97,28 @@
                 let heartLeft = document.createElement("div");
                 heartLeft.innerHTML = "❤️";
                 heartLeft.className = "flying-heart";
-                heartLeft.style.left = Math.random() * 200 + "px";
+                heartLeft.style.left = Math.random() * 100 + "vw";
                 heartLeft.style.animationDuration = (Math.random() * 3 + 2) + "s";
                 document.getElementById("leftEffects").appendChild(heartLeft);
                 
                 let heartRight = document.createElement("div");
                 heartRight.innerHTML = "❤️";
                 heartRight.className = "flying-heart";
-                heartRight.style.right = Math.random() * 200 + "px";
+                heartRight.style.right = Math.random() * 100 + "vw";
                 heartRight.style.animationDuration = (Math.random() * 3 + 2) + "s";
                 document.getElementById("rightEffects").appendChild(heartRight);
 
                 let doveLeft = document.createElement("div");
                 doveLeft.innerHTML = "🕊️";
                 doveLeft.className = "flying-dove";
-                doveLeft.style.left = Math.random() * 200 + "px";
+                doveLeft.style.left = Math.random() * 100 + "vw";
                 doveLeft.style.animationDuration = (Math.random() * 3 + 2) + "s";
                 document.getElementById("leftEffects").appendChild(doveLeft);
                 
                 let doveRight = document.createElement("div");
                 doveRight.innerHTML = "🕊️";
                 doveRight.className = "flying-dove";
-                doveRight.style.right = Math.random() * 200 + "px";
+                doveRight.style.right = Math.random() * 100 + "vw";
                 doveRight.style.animationDuration = (Math.random() * 3 + 2) + "s";
                 document.getElementById("rightEffects").appendChild(doveRight);
 
