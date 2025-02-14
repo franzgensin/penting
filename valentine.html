@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadiah Valentine untuk Hana</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        .heart {
+            font-size: 50px;
+            color: red;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #valentineImage {
+            display: none;
+            margin-top: 20px;
+            max-width: 30%; /* Perkecil gambar agar lebih rapi */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .effect-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        .flying-heart, .flying-dove {
+            position: absolute;
+            font-size: 30px;
+            animation: fly 5s linear;
+        }
+        @keyframes fly {
+            from {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat Hari Valentine, Hana! 💖</h1>
+    <p>Aku ada hadiah spesial untuk kamu yang spesial di hari Valentine ini, di klik ya! 😊</p>
+    <div class="heart">❤️ ❤️ ❤️</div>
+    <button id="surpriseButton" onclick="showSurprise()">Klik untuk Kejutan!</button>
+    <p id="message" style="display: none;">Hana tersayang, di hari yang penuh cinta ini, aku ingin mengingatkan betapa berharganya dirimu bagiku. Aku berdoa semoga setiap langkah yang kamu ambil dalam pekerjaan dan karirmu selalu diberkati, penuh keberhasilan, dan kemudahan. Aku akan selalu ada untukmu, mendukung setiap mimpimu, dan semoga kamu dapat memperjuangkan kasih sayang kita hingga menua bersama, hingga kita menjadi debu. Aku mencintaimu sepenuh hati. 💕</p>
+    
+    <div class="container">
+        <div class="effect-container" id="leftEffects"></div>
+        <img id="valentineImage" src="hadiah-hana.jpg" alt="Hadiah Spesial untuk Hana" style="display: none;" />
+        <div class="effect-container" id="rightEffects"></div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            document.getElementById("message").style.display = "block";
+            document.getElementById("valentineImage").style.display = "block";
+            document.getElementById("surpriseButton").style.display = "none"; // Hilangkan tombol setelah diklik
+            
+            for (let i = 0; i < 30; i++) { // Tambah lebih banyak efek dan meratakan efek
+                let heartLeft = document.createElement("div");
+                heartLeft.innerHTML = "❤️";
+                heartLeft.className = "flying-heart";
+                heartLeft.style.left = Math.random() * 200 + "px";
+                heartLeft.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.getElementById("leftEffects").appendChild(heartLeft);
+                
+                let heartRight = document.createElement("div");
+                heartRight.innerHTML = "❤️";
+                heartRight.className = "flying-heart";
+                heartRight.style.right = Math.random() * 200 + "px";
+                heartRight.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.getElementById("rightEffects").appendChild(heartRight);
+
+                let doveLeft = document.createElement("div");
+                doveLeft.innerHTML = "🕊️";
+                doveLeft.className = "flying-dove";
+                doveLeft.style.left = Math.random() * 200 + "px";
+                doveLeft.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.getElementById("leftEffects").appendChild(doveLeft);
+                
+                let doveRight = document.createElement("div");
+                doveRight.innerHTML = "🕊️";
+                doveRight.className = "flying-dove";
+                doveRight.style.right = Math.random() * 200 + "px";
+                doveRight.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.getElementById("rightEffects").appendChild(doveRight);
+
+                setTimeout(() => {
+                    heartLeft.remove();
+                    heartRight.remove();
+                    doveLeft.remove();
+                    doveRight.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
